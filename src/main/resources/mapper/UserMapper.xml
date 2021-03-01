@@ -25,4 +25,7 @@
     insert into USER (ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED)
     values (#{id}, #{accountId}, #{name}, #{token}, #{gmtCreate}, #{gmtModified})
   </insert>
+  <select id="findByToken" resultType="com.qyl.community.model.User">
+        select * from User WHERE TOKEN = #{token}
+  </select>
 </mapper>
