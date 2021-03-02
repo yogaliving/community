@@ -28,6 +28,9 @@
                 <button type="submit" class="btn btn-default">搜索</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
+                <li th:if="${session.user != null}">
+                    <a href="/publish">提问</a>
+                </li>
                 <li class="dropdown" th:if="${session.user != null}">
                     <a href="#" th:text="${session.user.getName()}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         我 <span class="caret"></span></a>
@@ -37,7 +40,9 @@
                         <li><a href="#">退出登录</a></li>
                     </ul>
                 </li>
-                <li><a th:if="${session.user == null}" href="https://github.com/login/oauth/authorize?client_id=Iv1.7c7779c950bdf33b&redirect_uri=http://localhost:8081/callback&scope=user&state=1">登录</a></li>
+                <li>
+                    <a th:if="${session.user == null}" href="https://github.com/login/oauth/authorize?client_id=Iv1.7c7779c950bdf33b&redirect_uri=http://localhost:8081/callback&scope=user&state=1">登录</a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
